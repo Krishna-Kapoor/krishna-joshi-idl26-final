@@ -16,10 +16,15 @@ def get_loaders(data, data_path, batch_size, val_split=0.1):
     total_samples = data_dict['train_images'].shape[0]
     val_size = int(total_samples * val_split)
     val_start = total_samples - val_size
+    train_data = data_dict['train_images'][:val_start]
+    train_labels = data_dict['train_labels'][:val_start]
 
+<<<<<<< HEAD
      # Creating Split of datasets into training and validation datasets 
     train_data = data_dict['train_images'][:val_start]
     train_labels = data_dict['train_labels'] [:val_start]
+=======
+>>>>>>> 5999dea (added zero_grad since pytorch accumulates gradients by default)
     val_data = data_dict['train_images'][val_start:]
     val_labels = data_dict['train_labels'][val_start:]
 
